@@ -18,7 +18,7 @@ def test_encriptar_diferente_cada_vez():
     # El IV aleatorio hace que cada llamada produzca un resultado distinto
     r1 = encriptar("mismo texto", "misma llave")
     r2 = encriptar("mismo texto", "misma llave")
-    assert r1 == r2
+    assert r1 != r2
 
 
 def test_encriptar_texto_largo():

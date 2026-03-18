@@ -59,8 +59,8 @@ def encriptar(texto: str, llave: str) -> str:
     key = _derive_key(llave)
     iv = get_random_bytes(16)
     cipher = AES.new(key, AES.MODE_CBC, iv)
-    ct = cipher.encrypt(pad(texto.encode("ascii"), AES.block_size))
-    return ct.hex()
+    ct = cipher.encrypt(pad(texto.encode("UTF-8"), AES.block_size))
+    return iv.hex() + ct.hex()
 
 
 def desencriptar(texto_encriptado: str, llave: str) -> str:
@@ -104,4 +104,4 @@ def desencriptar(texto_encriptado: str, llave: str) -> str:
     data = bytes.fromhex(texto_encriptado)
     iv, ct = data[:16], data[16:]
     cipher = AES.new(key, AES.MODE_CBC, iv)
-    return unpad(cipher.decrypt(ct), AES.block_size * 2).decode()
+    return unpad(cipher.decrypt(ct), AES.block_size).decode()
