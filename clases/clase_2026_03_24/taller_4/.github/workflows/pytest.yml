@@ -1,0 +1,30 @@
+name: test accion pytest
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04 , ubuntu-22.04]
+        python-version: ['3.8' , '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: '0.10.10'
+        
+      - name: instalar requerimientos
+        run: uv sync
+
+      - name: ejecutar pytest
+        run: uv run pytest
+
+      
