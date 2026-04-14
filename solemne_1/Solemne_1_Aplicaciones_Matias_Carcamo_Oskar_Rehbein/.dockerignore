@@ -1,0 +1,39 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Workflows
+.github/
+
+# Git
+.git/
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Virtual Enviroments
+.venv/
+venv/
+env/
+
+# Visual studio code
+.vscode/
+
+# Cache de herramientas
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Documentacion
+README.md
+EXPLICACION.md
+
+# hora/tests
+test_*.py
+
+# Para ejecuón de tests
+conftest.py
+EXPLICACION.md
