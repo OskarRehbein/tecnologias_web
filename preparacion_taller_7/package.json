@@ -1,0 +1,12 @@
+{
+  "name": "preparacion_taller_7",
+  "private": true,
+  "scripts": {
+    "test": "node test.js",
+    "insert": "node insert.js",
+    "query": "node query.js"
+  },
+  "dependencies": {
+    "mongoose": "^8.19.1"
+  }
+}

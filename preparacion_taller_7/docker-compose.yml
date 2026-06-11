@@ -1,0 +1,12 @@
+# Basicamente crea un contenedor en docker (Crea un DB)
+# Utilizar 'docker compose up'
+
+services:
+  mongodb:
+    image: mongo:8.0.17
+    volumes:
+      - ./storage/data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: testdb
